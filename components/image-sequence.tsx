@@ -36,7 +36,7 @@ const ImageSequence: React.FC<ImageSequenceProps> = ({
     const imgObjects: HTMLImageElement[] = [];
     let loadedImages = 0;
 
-    const airbnb = {
+    const sequence = {
       frame: 0,
     };
 
@@ -55,7 +55,7 @@ const ImageSequence: React.FC<ImageSequenceProps> = ({
 
     const render = () => {
       context.clearRect(0, 0, canvas.width, canvas.height);
-      const img = imgObjects[airbnb.frame];
+      const img = imgObjects[sequence.frame];
       if (img) {
         // Draw image keeping aspect ratio (cover)
         const canvasAspect = canvas.width / canvas.height;
@@ -89,7 +89,7 @@ const ImageSequence: React.FC<ImageSequenceProps> = ({
     });
 
     tl.to(
-      airbnb,
+      sequence,
       {
         frame: images.length - 1,
         snap: "frame",
