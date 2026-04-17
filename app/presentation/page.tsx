@@ -25,9 +25,9 @@ function Slide({ children, index, active, ambient }: SlideProps) {
         display: "flex",
         alignItems: "center",
         justifyContent: "center",
-        padding: "64px 80px",
+        padding: "40px 80px",
         position: "relative",
-        overflow: "hidden",
+        overflowY: "auto",
       }}
     >
       {/* Ambient glow */}
@@ -72,7 +72,7 @@ function SlideLabel({ children }: { children: React.ReactNode }) {
         letterSpacing: "0.35em",
         textTransform: "uppercase",
         color: "var(--gold)",
-        marginBottom: 18,
+        marginBottom: 12,
         display: "flex",
         alignItems: "center",
         gap: 12,
@@ -99,7 +99,7 @@ function SectionTitle({ children }: { children: React.ReactNode }) {
         fontSize: "clamp(2rem, 4vw, 3.2rem)",
         fontWeight: 400,
         lineHeight: 1.1,
-        marginBottom: 18,
+        marginBottom: 12,
       }}
     >
       {children}
@@ -127,7 +127,7 @@ function Body({
       style={{
         fontSize: "1rem",
         color: "var(--text-muted)",
-        lineHeight: 1.85,
+        lineHeight: 1.6,
         maxWidth: 640,
         ...style,
       }}
@@ -290,7 +290,7 @@ function ArchBox({
         border: `1px solid ${
           highlight ? "rgba(200,169,110,0.18)" : "rgba(255,255,255,0.05)"
         }`,
-        padding: "18px 16px",
+        padding: "12px 16px",
         textAlign: "center",
         transition: "border-color 0.3s",
       }}
@@ -511,7 +511,7 @@ function FramesDemo() {
 
 // ── Main page ──────────────────────────────────────────────────────────────
 
-const TOTAL = 6;
+const TOTAL = 9;
 
 export default function PresentationPage() {
   const [current, setCurrent] = useState(0);
@@ -640,15 +640,111 @@ export default function PresentationPage() {
                 synchronized with scroll position — creating seamless, cinematic experiences on the web.
               </p>
               <p style={{ fontSize: "0.6rem", letterSpacing: "0.3em", textTransform: "uppercase", color: "var(--text-dim)", marginTop: 32 }}>
-                6 slides · use arrows or keyboard
+                8 slides · use arrows or keyboard
               </p>
             </div>
           </Slide>
 
-          {/* SLIDE 2 — What Is It */}
+          {/* SLIDE 2 — About Me */}
           <Slide
             index={1}
             active={current === 1}
+            ambient="radial-gradient(ellipse 60% 50% at 50% 50%,rgba(200,169,110,0.05) 0%,transparent 65%)"
+          >
+            <SlideLabel>About the Author</SlideLabel>
+            <div style={{ display: "grid", gridTemplateColumns: "1fr 1fr", gap: 60, alignItems: "center" }}>
+              <div>
+                <SectionTitle>
+                  Hello, I&apos;m <Em>Vicky Adi</Em>
+                </SectionTitle>
+                <Body>
+                  A Software Engineer specializing in building scalable software, 
+                  creating thoughtful interfaces, and mentoring growth. 
+                  Currently based in Yogyakarta, Indonesia.
+                </Body>
+              </div>
+              <div style={{ 
+                background: "var(--surface)", 
+                border: "1px solid rgba(255,255,255,0.05)", 
+                padding: "40px",
+                textAlign: "center"
+              }}>
+                <div style={{ 
+                  width: "140px", 
+                  height: "140px", 
+                  borderRadius: "50%", 
+                  overflow: "hidden",
+                  border: "2px solid var(--gold-dark)",
+                  margin: "0 auto 20px",
+                }}>
+                  <img 
+                    src="https://vickyadi.site/_next/image?url=%2Fprofile.webp&w=384&q=75" 
+                    alt="Vicky Adi Firmansyah"
+                    style={{ width: "100%", height: "100%", objectFit: "cover" }}
+                  />
+                </div>
+                <h3 style={{ fontFamily: "var(--font-bodoni), serif", fontSize: "1.5rem", marginBottom: "8px" }}>Vicky Adi Firmansyah</h3>
+                <p style={{ color: "var(--gold)", fontSize: "0.9rem", letterSpacing: "0.1em", textTransform: "uppercase" }}>Software Engineer</p>
+              </div>
+            </div>
+          </Slide>
+
+          {/* SLIDE 3 — Experience */}
+          <Slide
+            index={2}
+            active={current === 2}
+            ambient="radial-gradient(ellipse 60% 50% at 80% 50%,rgba(200,169,110,0.06) 0%,transparent 60%)"
+          >
+            <SlideLabel>Professional Experience</SlideLabel>
+            <SectionTitle>
+              <Em>Experience</Em>
+            </SectionTitle>
+            <div style={{ display: "grid", gridTemplateColumns: "1fr 1fr", gap: 24, marginTop: 32 }}>
+              <TechCard 
+                icon="💼" 
+                badge="May 2023 - Present" 
+                title={<>Software Engineer at <span style={{ color: "var(--gold)" }}>Synapsis</span></>}
+              >
+                Lead development of complex systems including geofenced attendance, 
+                fleet management, and real-time IoT dashboards using Next.js, Docker, and WebSockets.
+              </TechCard>
+              <TechCard 
+                icon="🏫" 
+                badge="May 2025 - Aug 2025" 
+                title={<>Coding Teacher at <span style={{ color: "var(--gold)" }}>Timedoor</span></>}
+              >
+                Mentored 17+ students in web development and robotics, 
+                standardizing curriculum and delivering workshops.
+              </TechCard>
+            </div>
+          </Slide>
+
+          {/* SLIDE 4 — Education */}
+          <Slide
+            index={3}
+            active={current === 3}
+            ambient="radial-gradient(ellipse 60% 50% at 20% 50%,rgba(200,169,110,0.05) 0%,transparent 60%)"
+          >
+            <SlideLabel>Education</SlideLabel>
+            <SectionTitle>
+              <Em>Academic</Em>
+            </SectionTitle>
+            <div style={{ marginTop: 32, maxWidth: 600 }}>
+              <TechCard 
+                icon="🎓" 
+                badge="2025 - 2029" 
+                title={<>Informatics at <span style={{ color: "var(--gold)" }}>Telkom University</span></>}
+              >
+                Pursuing a degree in Informatics, focusing on software engineering, 
+                algorithms, and computer science fundamentals.
+              </TechCard>
+            </div>
+          </Slide>
+
+          {/* SLIDE 5 — What Is It */}
+          <Slide
+            index={4}
+            active={current === 4}
             ambient="radial-gradient(ellipse 60% 50% at 20% 50%,rgba(200,169,110,0.06) 0%,transparent 60%)"
           >
             <SlideLabel>01 — What Is It</SlideLabel>
@@ -673,10 +769,10 @@ export default function PresentationPage() {
             </div>
           </Slide>
 
-          {/* SLIDE 3 — How It Works */}
+          {/* SLIDE 6 — How It Works */}
           <Slide
-            index={2}
-            active={current === 2}
+            index={5}
+            active={current === 5}
             ambient="radial-gradient(ellipse 60% 50% at 80% 50%,rgba(200,169,110,0.06) 0%,transparent 60%)"
           >
             <SlideLabel>02 — How It Works</SlideLabel>
@@ -705,10 +801,10 @@ export default function PresentationPage() {
             </div>
           </Slide>
 
-          {/* SLIDE 4 — Scroll Mechanic */}
+          {/* SLIDE 7 — Scroll Mechanic */}
           <Slide
-            index={3}
-            active={current === 3}
+            index={6}
+            active={current === 6}
             ambient="radial-gradient(ellipse 60% 50% at 50% 50%,rgba(200,169,110,0.05) 0%,transparent 65%)"
           >
             <SlideLabel>03 — Scroll Mechanic</SlideLabel>
@@ -738,10 +834,10 @@ export default function PresentationPage() {
             </div>
           </Slide>
 
-          {/* SLIDE 5 — Tech Stack + Perf */}
+          {/* SLIDE 8 — Tech Stack + Perf */}
           <Slide
-            index={4}
-            active={current === 4}
+            index={7}
+            active={current === 7}
             ambient="radial-gradient(ellipse 60% 50% at 50% 50%,rgba(200,169,110,0.05) 0%,transparent 65%)"
           >
             <SlideLabel>04 — Tech Stack & Performance</SlideLabel>
@@ -765,10 +861,10 @@ export default function PresentationPage() {
 
           </Slide>
 
-          {/* SLIDE 6 — Architecture */}
+          {/* SLIDE 9 — Architecture */}
           <Slide
-            index={5}
-            active={current === 5}
+            index={8}
+            active={current === 8}
             ambient="radial-gradient(ellipse 60% 50% at 50% 50%,rgba(200,169,110,0.05) 0%,transparent 65%)"
           >
             <SlideLabel>05 — Architecture</SlideLabel>
@@ -779,25 +875,25 @@ export default function PresentationPage() {
               A single self-contained React component owns the canvas, image cache, and GSAP
               timeline — keeping all animation logic co-located.
             </Body>
-            <div style={{ display: "flex", flexDirection: "column", gap: 2, marginTop: 24 }}>
-              <div style={{ display: "flex", gap: 2 }}>
+            <div style={{ display: "flex", flexDirection: "column", gap: 4, marginTop: 12 }}>
+              <div style={{ display: "flex", gap: 4 }}>
                 <ArchBox highlight title="User Scroll" desc="Browser scroll event" />
               </div>
-              <div style={{ textAlign: "center", color: "var(--gold-dark)", fontSize: "1.1rem", padding: "2px 0" }}>↓</div>
-              <div style={{ display: "flex", gap: 2 }}>
+              <div style={{ textAlign: "center", color: "var(--gold-dark)", fontSize: "0.9rem", padding: "1px 0" }}>↓</div>
+              <div style={{ display: "flex", gap: 4 }}>
                 <ArchBox highlight title="GSAP ScrollTrigger" desc="Translates scroll position → timeline progress" />
               </div>
-              <div style={{ textAlign: "center", color: "var(--gold-dark)", fontSize: "1.1rem", padding: "2px 0" }}>↓</div>
-              <div style={{ display: "flex", gap: 2 }}>
+              <div style={{ textAlign: "center", color: "var(--gold-dark)", fontSize: "0.9rem", padding: "1px 0" }}>↓</div>
+              <div style={{ display: "flex", gap: 4 }}>
                 <ArchBox title="Frame Object" desc="{ frame: 0…299 } tweened by GSAP" />
                 <ArchBox title="Text Refs" desc="textRef1 / 2 / 3 — faded in/out at key frames" />
               </div>
-              <div style={{ textAlign: "center", color: "var(--gold-dark)", fontSize: "1.1rem", padding: "2px 0" }}>↓</div>
-              <div style={{ display: "flex", gap: 2 }}>
+              <div style={{ textAlign: "center", color: "var(--gold-dark)", fontSize: "0.9rem", padding: "1px 0" }}>↓</div>
+              <div style={{ display: "flex", gap: 4 }}>
                 <ArchBox highlight title="render()" desc="Clears canvas → draws imgObjects[frame] with cover scaling" />
               </div>
-              <div style={{ textAlign: "center", color: "var(--gold-dark)", fontSize: "1.1rem", padding: "2px 0" }}>↓</div>
-              <div style={{ display: "flex", gap: 2 }}>
+              <div style={{ textAlign: "center", color: "var(--gold-dark)", fontSize: "0.9rem", padding: "1px 0" }}>↓</div>
+              <div style={{ display: "flex", gap: 4 }}>
                 <ArchBox title="<canvas>" desc="Full-viewport, cover-scaled current frame" />
                 <ArchBox title="Overlay Text" desc="Absolutely positioned, animated independently" />
               </div>

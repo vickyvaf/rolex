@@ -12,3 +12,7 @@ A premium, scroll-driven landing page dedicated to the Rolex Submariner. This pr
 - **Luxury Typography:** Utilizes elegant font pairings (Bodoni, Garamond, Inter).
 - **Responsive Design:** Optimized for a seamless experience across devices.
 - **Modern Tech Stack:** Built with Next.js and Tailwind CSS.
+
+## Reference
+
+- [Rolex Submariner 2022 Black | Blender 3d Product Animation](https://www.youtube.com/watch?v=L1JoUErVauw)
