@@ -701,12 +701,12 @@ export default function PresentationPage() {
             </SectionTitle>
             <div style={{ display: "grid", gridTemplateColumns: "1fr 1fr", gap: 24, marginTop: 32 }}>
               <TechCard 
-                icon="💼" 
-                badge="May 2023 - Present" 
-                title={<>Software Engineer at <span style={{ color: "var(--gold)" }}>Synapsis</span></>}
+                icon="💻" 
+                badge="Fullstack Specialist" 
+                title={<>Software <span style={{ color: "var(--gold)" }}>Engineering</span></>}
               >
-                Lead development of complex systems including geofenced attendance, 
-                fleet management, and real-time IoT dashboards using Next.js, Docker, and WebSockets.
+                Building scalable web applications and high-performance systems 
+                with a focus on modern architectures and seamless UX.
               </TechCard>
               <TechCard 
                 icon="🏫" 
