@@ -16,3 +16,14 @@ A premium, scroll-driven landing page dedicated to the Rolex Submariner. This pr
 ## Reference
 
 - [Rolex Submariner 2022 Black | Blender 3d Product Animation](https://www.youtube.com/watch?v=L1JoUErVauw)
+
+## How to Improve
+
+### Performance & Load Time
+- **Image Sequence Optimization:** Convert high-resolution image sequences to modern formats like WebP or AVIF to reduce file size without losing quality.
+- **Edge Caching:** Deploy on a global CDN to ensure assets are served from the closest location to the user.
+
+### Features & UX
+- **Interactive Hotspots:** Add clickable details on the watch to reveal technical specifications or heritage stories.
+- **Refined Easing:** Fine-tune GSAP or Framer Motion easing curves for even smoother scroll transitions.
+- **Dynamic Theming:** Implement subtle theme shifts (e.g., dial color changes) based on user interaction or time of day.
