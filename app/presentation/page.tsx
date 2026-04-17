@@ -324,6 +324,7 @@ function CodeBlock() {
         color: "#777",
         position: "relative",
         overflow: "hidden",
+        whiteSpace: "pre",
       }}
     >
       <div
@@ -338,7 +339,7 @@ function CodeBlock() {
         }}
       />
       {[
-        ["comment", "// Map scroll → frame index"],
+        ["comment", "// Map scroll -> frame index"],
         ["normal", ""],
         [
           "mixed",
