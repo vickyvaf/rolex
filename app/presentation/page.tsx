@@ -161,7 +161,8 @@ function Card({
       onMouseEnter={(e) => {
         (e.currentTarget as HTMLDivElement).style.borderColor =
           "rgba(200,169,110,0.25)";
-        (e.currentTarget as HTMLDivElement).style.transform = "translateY(-3px)";
+        (e.currentTarget as HTMLDivElement).style.transform =
+          "translateY(-3px)";
       }}
       onMouseLeave={(e) => {
         (e.currentTarget as HTMLDivElement).style.borderColor =
@@ -203,7 +204,13 @@ function Card({
       >
         {title}
       </h3>
-      <p style={{ fontSize: "0.83rem", color: "var(--text-muted)", lineHeight: 1.75 }}>
+      <p
+        style={{
+          fontSize: "0.83rem",
+          color: "var(--text-muted)",
+          lineHeight: 1.75,
+        }}
+      >
         {children}
       </p>
     </div>
@@ -230,10 +237,12 @@ function TechCard({
         transition: "background 0.3s",
       }}
       onMouseEnter={(e) =>
-        ((e.currentTarget as HTMLDivElement).style.background = "var(--surface2)")
+        ((e.currentTarget as HTMLDivElement).style.background =
+          "var(--surface2)")
       }
       onMouseLeave={(e) =>
-        ((e.currentTarget as HTMLDivElement).style.background = "var(--surface)")
+        ((e.currentTarget as HTMLDivElement).style.background =
+          "var(--surface)")
       }
     >
       <span style={{ fontSize: "1.8rem", display: "block", marginBottom: 12 }}>
@@ -249,7 +258,13 @@ function TechCard({
       >
         {title}
       </h3>
-      <p style={{ fontSize: "0.78rem", color: "var(--text-muted)", lineHeight: 1.65 }}>
+      <p
+        style={{
+          fontSize: "0.78rem",
+          color: "var(--text-muted)",
+          lineHeight: 1.65,
+        }}
+      >
         {children}
       </p>
       <span
@@ -270,8 +285,6 @@ function TechCard({
     </div>
   );
 }
-
-
 
 function ArchBox({
   title,
@@ -471,8 +484,7 @@ function FramesDemo() {
               i === 2
                 ? "1px solid rgba(200,169,110,0.4)"
                 : "1px solid rgba(200,169,110,0.1)",
-            boxShadow:
-              i === 2 ? "0 0 10px rgba(200,169,110,0.1)" : "none",
+            boxShadow: i === 2 ? "0 0 10px rgba(200,169,110,0.1)" : "none",
             position: "relative",
           }}
         >
@@ -519,16 +531,13 @@ export default function PresentationPage() {
   const trackRef = useRef<HTMLDivElement>(null);
   const touchStartX = useRef<number | null>(null);
 
-  const goTo = useCallback(
-    (idx: number) => {
-      if (idx < 0 || idx >= TOTAL) return;
-      setCurrent(idx);
-      if (trackRef.current) {
-        trackRef.current.style.transform = `translateX(-${idx * 100}vw)`;
-      }
-    },
-    []
-  );
+  const goTo = useCallback((idx: number) => {
+    if (idx < 0 || idx >= TOTAL) return;
+    setCurrent(idx);
+    if (trackRef.current) {
+      trackRef.current.style.transform = `translateX(-${idx * 100}vw)`;
+    }
+  }, []);
 
   // Keyboard navigation
   useEffect(() => {
@@ -612,15 +621,29 @@ export default function PresentationPage() {
       >
         {/* ── TRACK ── */}
         <div className="slides-track" ref={trackRef}>
-
           {/* SLIDE 1 — Hero */}
           <Slide
             index={0}
             active={current === 0}
             ambient="radial-gradient(ellipse 70% 60% at 50% 55%,rgba(200,169,110,0.09) 0%,transparent 70%)"
           >
-            <div style={{ textAlign: "center", display: "flex", flexDirection: "column", alignItems: "center" }}>
-              <p style={{ fontSize: "0.6rem", letterSpacing: "0.35em", textTransform: "uppercase", color: "var(--gold)", marginBottom: 18 }}>
+            <div
+              style={{
+                textAlign: "center",
+                display: "flex",
+                flexDirection: "column",
+                alignItems: "center",
+              }}
+            >
+              <p
+                style={{
+                  fontSize: "0.6rem",
+                  letterSpacing: "0.35em",
+                  textTransform: "uppercase",
+                  color: "var(--gold)",
+                  marginBottom: 18,
+                }}
+              >
                 Project Presentation
               </p>
               <h1
@@ -632,17 +655,74 @@ export default function PresentationPage() {
                   marginBottom: 20,
                 }}
               >
-                Scroll-Driven<br />
-                <em style={{ fontStyle: "italic", color: "var(--gold-light)" }}>Image Sequence</em>
+                Scroll-Driven
+                <br />
+                <em style={{ fontStyle: "italic", color: "var(--gold-light)" }}>
+                  Image Sequence
+                </em>
               </h1>
-              <div style={{ width: 50, height: 1, background: "linear-gradient(to right,transparent,var(--gold),transparent)", margin: "0 auto 20px" }} />
-              <p style={{ fontSize: "1rem", color: "var(--text-muted)", lineHeight: 1.85, maxWidth: 560, textAlign: "center" }}>
-                A deep dive into the technique of rendering frame-by-frame animations
-                synchronized with scroll position — creating seamless, cinematic experiences on the web.
+              <div
+                style={{
+                  width: 50,
+                  height: 1,
+                  background:
+                    "linear-gradient(to right,transparent,var(--gold),transparent)",
+                  margin: "0 auto 20px",
+                }}
+              />
+              <p
+                style={{
+                  fontSize: "1rem",
+                  color: "var(--text-muted)",
+                  lineHeight: 1.85,
+                  maxWidth: 560,
+                  textAlign: "center",
+                }}
+              >
+                A deep dive into the technique of rendering frame-by-frame
+                animations synchronized with scroll position — creating
+                seamless, cinematic experiences on the web.
               </p>
-              <p style={{ fontSize: "0.6rem", letterSpacing: "0.3em", textTransform: "uppercase", color: "var(--text-dim)", marginTop: 32 }}>
+              <p
+                style={{
+                  fontSize: "0.6rem",
+                  letterSpacing: "0.3em",
+                  textTransform: "uppercase",
+                  color: "var(--text-dim)",
+                  marginTop: 32,
+                }}
+              >
                 8 slides · use arrows or keyboard
               </p>
+              <a
+                href="https://scrollsequence.com/"
+                target="_blank"
+                rel="noopener noreferrer"
+                style={{
+                  fontSize: "0.6rem",
+                  letterSpacing: "0.1em",
+                  color: "var(--gold)",
+                  marginTop: 12,
+                  textDecoration: "none",
+                  borderBottom: "1px solid rgba(200, 169, 110, 0.3)",
+                  transition: "all 0.2s ease",
+                  display: "inline-block",
+                }}
+                onMouseEnter={(e) => {
+                  (e.currentTarget as HTMLAnchorElement).style.color =
+                    "var(--gold-light)";
+                  (e.currentTarget as HTMLAnchorElement).style.borderBottomColor =
+                    "var(--gold)";
+                }}
+                onMouseLeave={(e) => {
+                  (e.currentTarget as HTMLAnchorElement).style.color =
+                    "var(--gold)";
+                  (e.currentTarget as HTMLAnchorElement).style.borderBottomColor =
+                    "rgba(200, 169, 110, 0.3)";
+                }}
+              >
+                Reference: scrollsequence.com
+              </a>
             </div>
           </Slide>
 
@@ -653,39 +733,71 @@ export default function PresentationPage() {
             ambient="radial-gradient(ellipse 60% 50% at 50% 50%,rgba(200,169,110,0.05) 0%,transparent 65%)"
           >
             <SlideLabel>About the Author</SlideLabel>
-            <div style={{ display: "grid", gridTemplateColumns: "1fr 1fr", gap: 60, alignItems: "center" }}>
+            <div
+              style={{
+                display: "grid",
+                gridTemplateColumns: "1fr 1fr",
+                gap: 60,
+                alignItems: "center",
+              }}
+            >
               <div>
                 <SectionTitle>
                   Hello, I&apos;m <Em>Vicky Adi</Em>
                 </SectionTitle>
                 <Body>
-                  A Software Engineer specializing in building scalable software, 
-                  creating thoughtful interfaces, and mentoring growth. 
-                  Currently based in Yogyakarta, Indonesia.
+                  A Software Engineer specializing in building scalable
+                  software, creating thoughtful interfaces, and mentoring
+                  growth. Currently based in Yogyakarta, Indonesia.
                 </Body>
               </div>
-              <div style={{ 
-                background: "var(--surface)", 
-                border: "1px solid rgba(255,255,255,0.05)", 
-                padding: "40px",
-                textAlign: "center"
-              }}>
-                <div style={{ 
-                  width: "140px", 
-                  height: "140px", 
-                  borderRadius: "50%", 
-                  overflow: "hidden",
-                  border: "2px solid var(--gold-dark)",
-                  margin: "0 auto 20px",
-                }}>
-                  <img 
-                    src="https://vickyadi.site/_next/image?url=%2Fprofile.webp&w=384&q=75" 
+              <div
+                style={{
+                  background: "var(--surface)",
+                  border: "1px solid rgba(255,255,255,0.05)",
+                  padding: "40px",
+                  textAlign: "center",
+                }}
+              >
+                <div
+                  style={{
+                    width: "140px",
+                    height: "140px",
+                    borderRadius: "50%",
+                    overflow: "hidden",
+                    border: "2px solid var(--gold-dark)",
+                    margin: "0 auto 20px",
+                  }}
+                >
+                  <img
+                    src="https://vickyadi.site/_next/image?url=%2Fprofile.webp&w=384&q=75"
                     alt="Vicky Adi Firmansyah"
-                    style={{ width: "100%", height: "100%", objectFit: "cover" }}
+                    style={{
+                      width: "100%",
+                      height: "100%",
+                      objectFit: "cover",
+                    }}
                   />
                 </div>
-                <h3 style={{ fontFamily: "var(--font-bodoni), serif", fontSize: "1.5rem", marginBottom: "8px" }}>Vicky Adi Firmansyah</h3>
-                <p style={{ color: "var(--gold)", fontSize: "0.9rem", letterSpacing: "0.1em", textTransform: "uppercase" }}>Software Engineer</p>
+                <h3
+                  style={{
+                    fontFamily: "var(--font-bodoni), serif",
+                    fontSize: "1.5rem",
+                    marginBottom: "8px",
+                  }}
+                >
+                  Vicky Adi Firmansyah
+                </h3>
+                <p
+                  style={{
+                    color: "var(--gold)",
+                    fontSize: "0.9rem",
+                    letterSpacing: "0.1em",
+                    textTransform: "uppercase",
+                  }}
+                >
+                  Frontend Engineer
+                </p>
               </div>
             </div>
           </Slide>
@@ -700,21 +812,38 @@ export default function PresentationPage() {
             <SectionTitle>
               <Em>Experience</Em>
             </SectionTitle>
-            <div style={{ display: "grid", gridTemplateColumns: "1fr 1fr", gap: 24, marginTop: 32 }}>
-              <TechCard 
-                icon="💻" 
-                badge="Fullstack Specialist" 
-                title={<>Software <span style={{ color: "var(--gold)" }}>Engineering</span></>}
+            <div
+              style={{
+                display: "grid",
+                gridTemplateColumns: "1fr 1fr",
+                gap: 24,
+                marginTop: 32,
+              }}
+            >
+              <TechCard
+                icon="💻"
+                badge="Fullstack Specialist"
+                title={
+                  <>
+                    Frontend{" "}
+                    <span style={{ color: "var(--gold)" }}>Engineer</span>
+                  </>
+                }
               >
-                Building scalable web applications and high-performance systems 
+                Building scalable web applications and high-performance systems
                 with a focus on modern architectures and seamless UX.
               </TechCard>
-              <TechCard 
-                icon="🏫" 
-                badge="May 2025 - Aug 2025" 
-                title={<>Coding Teacher at <span style={{ color: "var(--gold)" }}>Timedoor</span></>}
+              <TechCard
+                icon="🏫"
+                badge="May 2025 - Aug 2025"
+                title={
+                  <>
+                    Coding Teacher at{" "}
+                    <span style={{ color: "var(--gold)" }}>Timedoor</span>
+                  </>
+                }
               >
-                Mentored 17+ students in web development and robotics, 
+                Mentored 17+ students in web development and robotics,
                 standardizing curriculum and delivering workshops.
               </TechCard>
             </div>
@@ -731,13 +860,20 @@ export default function PresentationPage() {
               <Em>Academic</Em>
             </SectionTitle>
             <div style={{ marginTop: 32, maxWidth: 600 }}>
-              <TechCard 
-                icon="🎓" 
-                badge="2025 - 2029" 
-                title={<>Informatics at <span style={{ color: "var(--gold)" }}>Telkom University</span></>}
+              <TechCard
+                icon="🎓"
+                badge="2025 - 2029"
+                title={
+                  <>
+                    Informatics at{" "}
+                    <span style={{ color: "var(--gold)" }}>
+                      Telkom University
+                    </span>
+                  </>
+                }
               >
-                Pursuing a degree in Informatics, focusing on software engineering, 
-                algorithms, and computer science fundamentals.
+                Pursuing a degree in Informatics, focusing on software
+                engineering, algorithms, and computer science fundamentals.
               </TechCard>
             </div>
           </Slide>
@@ -750,20 +886,34 @@ export default function PresentationPage() {
           >
             <SlideLabel>01 — What Is It</SlideLabel>
             <SectionTitle>
-              An <Em>Image Sequence</Em><br />Is a Filmstrip for the Web
+              An <Em>Image Sequence</Em>
+              <br />
+              Is a Filmstrip for the Web
             </SectionTitle>
-            <div style={{ display: "grid", gridTemplateColumns: "1fr 1fr", gap: 70, alignItems: "center", marginTop: 16 }}>
+            <div
+              style={{
+                display: "grid",
+                gridTemplateColumns: "1fr 1fr",
+                gap: 70,
+                alignItems: "center",
+                marginTop: 16,
+              }}
+            >
               <div>
                 <Body style={{ maxWidth: "none" }}>
-                  An <strong style={{ color: "#f0ede8" }}>image sequence</strong> is a collection of still images
-                  where each frame represents a moment in an animation. Instead of a video file,
-                  the browser renders each frame on a{" "}
-                  <code style={{ color: "var(--gold)" }}>&lt;canvas&gt;</code> element
-                  and switches frames based on the user&apos;s scroll position.
+                  An{" "}
+                  <strong style={{ color: "#f0ede8" }}>image sequence</strong>{" "}
+                  is a collection of still images where each frame represents a
+                  moment in an animation. Instead of a video file, the browser
+                  renders each frame on a{" "}
+                  <code style={{ color: "var(--gold)" }}>&lt;canvas&gt;</code>{" "}
+                  element and switches frames based on the user&apos;s scroll
+                  position.
                 </Body>
                 <Body style={{ maxWidth: "none", marginTop: 14 }}>
-                  This technique powers cinematic scroll effects on high-end product pages —
-                  an object appears to rotate or animate purely in response to how far you&apos;ve scrolled.
+                  This technique powers cinematic scroll effects on high-end
+                  product pages — an object appears to rotate or animate purely
+                  in response to how far you&apos;ve scrolled.
                 </Body>
               </div>
               <FramesDemo />
@@ -778,9 +928,18 @@ export default function PresentationPage() {
           >
             <SlideLabel>02 — How It Works</SlideLabel>
             <SectionTitle>
-              Three Phases of<br /><Em>Frame Rendering</Em>
+              Three Phases of
+              <br />
+              <Em>Frame Rendering</Em>
             </SectionTitle>
-            <div style={{ display: "grid", gridTemplateColumns: "repeat(3,1fr)", gap: 2, marginTop: 30 }}>
+            <div
+              style={{
+                display: "grid",
+                gridTemplateColumns: "repeat(3,1fr)",
+                gap: 2,
+                marginTop: 30,
+              }}
+            >
               <Card num="①" tag="Phase 01" title="Preload All Frames">
                 All 300 JPEG frames are loaded into JavaScript{" "}
                 <code>Image</code> objects in parallel. Once every image fires
@@ -810,24 +969,87 @@ export default function PresentationPage() {
           >
             <SlideLabel>03 — Scroll Mechanic</SlideLabel>
             <SectionTitle>
-              GSAP <Em>ScrollTrigger</Em><br />at the Core
+              GSAP <Em>ScrollTrigger</Em>
+              <br />
+              at the Core
             </SectionTitle>
-            <div style={{ display: "grid", gridTemplateColumns: "1fr 1fr", gap: 48, marginTop: 20 }}>
+            <div
+              style={{
+                display: "grid",
+                gridTemplateColumns: "1fr 1fr",
+                gap: 48,
+                marginTop: 20,
+              }}
+            >
               <CodeBlock />
-              <div style={{ display: "flex", flexDirection: "column", gap: 22 }}>
+              <div
+                style={{ display: "flex", flexDirection: "column", gap: 22 }}
+              >
                 {[
-                  { icon: "📌", title: "Pin", desc: "Canvas stays fixed in viewport while scroll distance advances — keeping the animation visible throughout." },
-                  { icon: "🎛️", title: "Scrub 2.5", desc: "Adds inertia — the animation lags slightly behind scroll, giving a buttery, momentum-driven feel." },
-                  { icon: "🖼️", title: 'Snap: "frame"', desc: "Ensures the tweened value always lands on a whole integer — never a fractional frame index." },
-                  { icon: "✍️", title: "Layered Text", desc: "Three fromTo tweens placed at specific frame offsets reveal overlay text at precisely the right moments." },
+                  {
+                    icon: "📌",
+                    title: "Pin",
+                    desc: "Canvas stays fixed in viewport while scroll distance advances — keeping the animation visible throughout.",
+                  },
+                  {
+                    icon: "🎛️",
+                    title: "Scrub 2.5",
+                    desc: "Adds inertia — the animation lags slightly behind scroll, giving a buttery, momentum-driven feel.",
+                  },
+                  {
+                    icon: "🖼️",
+                    title: 'Snap: "frame"',
+                    desc: "Ensures the tweened value always lands on a whole integer — never a fractional frame index.",
+                  },
+                  {
+                    icon: "✍️",
+                    title: "Layered Text",
+                    desc: "Three fromTo tweens placed at specific frame offsets reveal overlay text at precisely the right moments.",
+                  },
                 ].map(({ icon, title, desc }) => (
-                  <div key={title} style={{ display: "flex", gap: 16, alignItems: "flex-start" }}>
-                    <div style={{ width: 36, height: 36, border: "1px solid rgba(200,169,110,0.2)", borderRadius: "50%", display: "flex", alignItems: "center", justifyContent: "center", flexShrink: 0, fontSize: "1rem" }}>
+                  <div
+                    key={title}
+                    style={{
+                      display: "flex",
+                      gap: 16,
+                      alignItems: "flex-start",
+                    }}
+                  >
+                    <div
+                      style={{
+                        width: 36,
+                        height: 36,
+                        border: "1px solid rgba(200,169,110,0.2)",
+                        borderRadius: "50%",
+                        display: "flex",
+                        alignItems: "center",
+                        justifyContent: "center",
+                        flexShrink: 0,
+                        fontSize: "1rem",
+                      }}
+                    >
                       {icon}
                     </div>
                     <div>
-                      <h4 style={{ fontFamily: "var(--font-bodoni),serif", fontSize: "0.95rem", fontWeight: 400, marginBottom: 3 }}>{title}</h4>
-                      <p style={{ fontSize: "0.82rem", color: "var(--text-muted)", lineHeight: 1.7 }}>{desc}</p>
+                      <h4
+                        style={{
+                          fontFamily: "var(--font-bodoni),serif",
+                          fontSize: "0.95rem",
+                          fontWeight: 400,
+                          marginBottom: 3,
+                        }}
+                      >
+                        {title}
+                      </h4>
+                      <p
+                        style={{
+                          fontSize: "0.82rem",
+                          color: "var(--text-muted)",
+                          lineHeight: 1.7,
+                        }}
+                      >
+                        {desc}
+                      </p>
                     </div>
                   </div>
                 ))}
@@ -845,21 +1067,60 @@ export default function PresentationPage() {
             <SectionTitle>
               Built With <Em>Modern Tools</Em>
             </SectionTitle>
-            <div style={{ display: "grid", gridTemplateColumns: "repeat(4,1fr)", gap: 1, marginTop: 24 }}>
-              <TechCard icon="⚡" badge="Framework" title={<>Next.js <span style={{ color: "var(--gold)" }}>16.2.4</span></>}>
-                App Router + React <strong style={{ color: "#f0ede8" }}>19.2.4</strong>. The image sequence runs as a <code>&quot;use client&quot;</code> component to access browser APIs.
+            <div
+              style={{
+                display: "grid",
+                gridTemplateColumns: "repeat(4,1fr)",
+                gap: 1,
+                marginTop: 24,
+              }}
+            >
+              <TechCard
+                icon="⚡"
+                badge="Framework"
+                title={
+                  <>
+                    Next.js <span style={{ color: "var(--gold)" }}>16.2.4</span>
+                  </>
+                }
+              >
+                App Router + React{" "}
+                <strong style={{ color: "#f0ede8" }}>19.2.4</strong>. The image
+                sequence runs as a <code>&quot;use client&quot;</code> component
+                to access browser APIs.
               </TechCard>
-              <TechCard icon="🎬" badge="Animation" title={<>GSAP <span style={{ color: "var(--gold)" }}>^3.15.0</span></>}>
-                <code>ScrollTrigger</code> plugin handles pin, scrub, and timeline sync with scroll position.
+              <TechCard
+                icon="🎬"
+                badge="Animation"
+                title={
+                  <>
+                    GSAP <span style={{ color: "var(--gold)" }}>^3.15.0</span>
+                  </>
+                }
+              >
+                <code>ScrollTrigger</code> plugin handles pin, scrub, and
+                timeline sync with scroll position.
               </TechCard>
               <TechCard icon="🖼️" badge="Rendering" title="HTML Canvas API">
-                Native Canvas renders each frame with cover-mode aspect ratio math. Frames pre-processed by <strong style={{ color: "#f0ede8" }}>Jimp ^1.6.1</strong>.
+                Native Canvas renders each frame with cover-mode aspect ratio
+                math. Frames pre-processed by{" "}
+                <strong style={{ color: "#f0ede8" }}>Jimp ^1.6.1</strong>.
               </TechCard>
-              <TechCard icon="🎨" badge="Styling" title={<>Tailwind CSS <span style={{ color: "var(--gold)" }}>^4</span></>}>
-                Latest Tailwind with <code>@tailwindcss/postcss</code>, TypeScript <strong style={{ color: "#f0ede8" }}>^5</strong> & <strong style={{ color: "#f0ede8" }}>pnpm 9.15.9</strong>.
+              <TechCard
+                icon="🎨"
+                badge="Styling"
+                title={
+                  <>
+                    Tailwind CSS{" "}
+                    <span style={{ color: "var(--gold)" }}>^4</span>
+                  </>
+                }
+              >
+                Latest Tailwind with <code>@tailwindcss/postcss</code>,
+                TypeScript <strong style={{ color: "#f0ede8" }}>^5</strong> &{" "}
+                <strong style={{ color: "#f0ede8" }}>pnpm 9.15.9</strong>.
               </TechCard>
             </div>
-
           </Slide>
 
           {/* SLIDE 9 — Architecture */}
@@ -873,34 +1134,100 @@ export default function PresentationPage() {
               Component <Em>Data Flow</Em>
             </SectionTitle>
             <Body>
-              A single self-contained React component owns the canvas, image cache, and GSAP
-              timeline — keeping all animation logic co-located.
+              A single self-contained React component owns the canvas, image
+              cache, and GSAP timeline — keeping all animation logic co-located.
             </Body>
-            <div style={{ display: "flex", flexDirection: "column", gap: 4, marginTop: 12 }}>
+            <div
+              style={{
+                display: "flex",
+                flexDirection: "column",
+                gap: 4,
+                marginTop: 12,
+              }}
+            >
               <div style={{ display: "flex", gap: 4 }}>
-                <ArchBox highlight title="User Scroll" desc="Browser scroll event" />
+                <ArchBox
+                  highlight
+                  title="User Scroll"
+                  desc="Browser scroll event"
+                />
               </div>
-              <div style={{ textAlign: "center", color: "var(--gold-dark)", fontSize: "0.9rem", padding: "1px 0" }}>↓</div>
-              <div style={{ display: "flex", gap: 4 }}>
-                <ArchBox highlight title="GSAP ScrollTrigger" desc="Translates scroll position → timeline progress" />
+              <div
+                style={{
+                  textAlign: "center",
+                  color: "var(--gold-dark)",
+                  fontSize: "0.9rem",
+                  padding: "1px 0",
+                }}
+              >
+                ↓
               </div>
-              <div style={{ textAlign: "center", color: "var(--gold-dark)", fontSize: "0.9rem", padding: "1px 0" }}>↓</div>
               <div style={{ display: "flex", gap: 4 }}>
-                <ArchBox title="Frame Object" desc="{ frame: 0…299 } tweened by GSAP" />
-                <ArchBox title="Text Refs" desc="textRef1 / 2 / 3 — faded in/out at key frames" />
+                <ArchBox
+                  highlight
+                  title="GSAP ScrollTrigger"
+                  desc="Translates scroll position → timeline progress"
+                />
               </div>
-              <div style={{ textAlign: "center", color: "var(--gold-dark)", fontSize: "0.9rem", padding: "1px 0" }}>↓</div>
-              <div style={{ display: "flex", gap: 4 }}>
-                <ArchBox highlight title="render()" desc="Clears canvas → draws imgObjects[frame] with cover scaling" />
+              <div
+                style={{
+                  textAlign: "center",
+                  color: "var(--gold-dark)",
+                  fontSize: "0.9rem",
+                  padding: "1px 0",
+                }}
+              >
+                ↓
               </div>
-              <div style={{ textAlign: "center", color: "var(--gold-dark)", fontSize: "0.9rem", padding: "1px 0" }}>↓</div>
               <div style={{ display: "flex", gap: 4 }}>
-                <ArchBox title="<canvas>" desc="Full-viewport, cover-scaled current frame" />
-                <ArchBox title="Overlay Text" desc="Absolutely positioned, animated independently" />
+                <ArchBox
+                  title="Frame Object"
+                  desc="{ frame: 0…299 } tweened by GSAP"
+                />
+                <ArchBox
+                  title="Text Refs"
+                  desc="textRef1 / 2 / 3 — faded in/out at key frames"
+                />
+              </div>
+              <div
+                style={{
+                  textAlign: "center",
+                  color: "var(--gold-dark)",
+                  fontSize: "0.9rem",
+                  padding: "1px 0",
+                }}
+              >
+                ↓
+              </div>
+              <div style={{ display: "flex", gap: 4 }}>
+                <ArchBox
+                  highlight
+                  title="render()"
+                  desc="Clears canvas → draws imgObjects[frame] with cover scaling"
+                />
+              </div>
+              <div
+                style={{
+                  textAlign: "center",
+                  color: "var(--gold-dark)",
+                  fontSize: "0.9rem",
+                  padding: "1px 0",
+                }}
+              >
+                ↓
+              </div>
+              <div style={{ display: "flex", gap: 4 }}>
+                <ArchBox
+                  title="<canvas>"
+                  desc="Full-viewport, cover-scaled current frame"
+                />
+                <ArchBox
+                  title="Overlay Text"
+                  desc="Absolutely positioned, animated independently"
+                />
               </div>
             </div>
           </Slide>
-
         </div>
         {/* /track */}
 
@@ -952,9 +1279,7 @@ export default function PresentationPage() {
                 cursor: "pointer",
                 padding: 0,
                 background:
-                  i === current
-                    ? "var(--gold)"
-                    : "rgba(200,169,110,0.2)",
+                  i === current ? "var(--gold)" : "rgba(200,169,110,0.2)",
                 transform: i === current ? "scale(1.4)" : "scale(1)",
                 transition: "background 0.4s, transform 0.4s",
               }}
